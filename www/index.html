@@ -6,44 +6,143 @@
     <title>Topo</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/67d97e7797.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <header>
+        <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+
+            <a class="navbar-brand" href="#">Topo.pl</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainmenu">
+                
+                <form class="form-inline">
+                    <input class="form-control mr-2" type="search" placeholder="Wyszukaj">
+                    <button class="btn btn-light" type="submit">Znajdź</button>
+                </form>
+                
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Strona główna</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button">Regiony</a>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Sokoły</a>
+                            <a class="dropdown-item" href="#">Szczytnik</a>
+                            <a class="dropdown-item" href="#">Jura</a>
+                            <a class="dropdown-item" href="#">Tatry</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mapa</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">O Autorze</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Zaloguj się</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+
     <main>
         <section class="Regions">
-            <div class="container">
+            <div class="container col-12">
                 <header>
                     <h1>Odkryj polskie skały</h1>
-                    <p>Odnajdź najpiękniejsze polskie drogi wspinaczkowe i boulderowe</p>
+                    <p>Znajdziesz tu opis polskich regionów wspinaczkowych</p>
                 </header>
                 
-                <div class="row">
+                <div class="row d-flex align-items-center window">
+                    
+                    <div class="col-1 col-md-1 arrow" id="left-arrow">
+                        <i class='fas fa-angle-left'></i>
+                    </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3 d-none d-md-block" id="left-region">
                         <figure>
                             <img src="img/Sokoliki.jpg" alt="Sokoliki">
                             <figcaption>Góry Sokole</figcaption>
                         <figure>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-10 col-md-4" id="middle-region">
                         <figure>
                             <img src="img/szczytnik.jpg" alt="Szczytna">
                             <figcaption>Okolice Szczytnika</figcaption>
                         </figure>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3 d-none d-md-block" id="right-region">
                         <figure>
                             <img src="img/jura.jpg" alt="Jura Krakowsko-Częstochowska">
-                            <figcaption>Jura Krakowsko-Częstochowska</figcaption>
+                            <figcaption>Jura</figcaption>
                         </figure>
                     </div>
+
+                    <div class="col-1 col-md-1 arrow" id="right-arrow">
+                        <i class='fas fa-angle-right'></i>
+                    </div>
+
                 </div>
 
             </div>
         </section>
+
+        <section class="Register">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1 col-1">
+
+                    </div>
+
+                    <div class="col-10 col-md-4 window"> 
+                        <h1>Zarejestruj się</h1>
+                        <label>E-mail <input type="email"></label>
+                        <label>Hasło <input type="password"></label>
+                        <label>Powtórz hasło <input type="password"></label>
+                        <input type="submit">
+                    </div>
+
+                    <div class="col-md-7 col-1">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container col-12">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <p>Jeżeli masz jakieś spostrzeżenia albo uwagi jak ulepszyś stronę proszę o kontakt: luk.konopacki@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
     </main>
 
+    <script src="js/SwipeRegions.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
