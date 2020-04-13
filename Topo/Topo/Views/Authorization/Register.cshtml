@@ -1,0 +1,25 @@
+﻿@model RegisterViewModel
+
+<section class="Register">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 col-lg-6 col-xl-5 mb-3 mt-5 mx-auto window">
+
+                <h1 class="text-center mt-1">Rejestracja</h1>
+                <form id="form-sub" class="form-group m-0" method="post">
+                    <label class="mb-0">E-mail</label><input id="Email" class="form-control" type="email" asp-for="Email" required>
+                    <span class="d-block" asp-validation-for="Email"></span>
+                    <label class="mt-1 mb-0">Hasło</label><input id="Password" class="form-control" type="password" asp-for="Password" required>
+                    <span class = "d-block" asp-validation-for="Password"></span>
+                    <label class="mt-1 mb-0">Powtórz Hasło</label><input id="RepPassword" class="form-control" type="password" asp-for="RepPassword" required>
+                    <span class="mb-1 d-block" asp-validation-for="RepPassword"></span>
+                    <input class="col-lg-6 mt-3 mb-1 form-control" type="submit">
+                    <div asp-validation-summary="All"></div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script asp-append-version="true" src="~/js/Validation.js"></script>

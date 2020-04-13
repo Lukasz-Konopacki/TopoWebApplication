@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Topo.Model;
 
 namespace Topo
 {
@@ -15,6 +18,14 @@ namespace Topo
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<EFCContext>(builder =>
+            {
+                builder.UseSqlServer(
+                @"Data Source=.\SQLEXPRESS;Initial Catalog=Topo;Integrated Security=True");
+            });
+            services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<EFCContext>();
+            
             services.AddMvc();
         }
 
@@ -27,6 +38,7 @@ namespace Topo
             }
 
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
         }
     }
