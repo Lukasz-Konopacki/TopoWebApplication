@@ -1,0 +1,27 @@
+﻿@model List<Region>
+
+<section class="Regions">
+    <div class="container">
+        <div class="row">
+            @{
+                foreach (var elem in Model)
+                {
+                    
+                        <div class="Region rounded-lg col-12 text-white mt-3 mx-auto" style="background-image:url('../@elem.PhotoUrl')">
+                            <a asp-action="Region" asp-controller="Climbing" asp-route-id="@elem.Id">
+                                <div>
+                                    <h1 class="pt-5">@elem.Name</h1>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus augue nisl, tempor eget orci ut, lacinia blandit nulla. Donec at ornare ex. Fusce sapien nibh, scelerisque sit amet dapibus eget, euismod vitae orci. Nullam et ornare felis, id tempor sem. Nullam in ex tortor. Nam odio nunc, imperdiet non est tristique, convallis laoreet sem. Quisque id mi vitae nisl malesuada ultricies.
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                  
+
+                }
+            }
+        </div>
+    </div>
+</section>
+

@@ -197,3 +197,39 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     text-decoration: none;
     color: #ff5a12;
 }
+
+.RegionAll .image
+{
+    padding-top: 350px;
+    color: white;
+    width: 100%;
+    background-image:url('../images/bg.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+
+.RegionAll .routs
+{
+    position: relative;
+    border: #ee5a12 2px solid;
+    color: #dddddd;
+    background-color: #303030;
+    min-height: 150px;
+}
+
+.RegionAll .text
+{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.RegionAll .graph
+{
+    border: #ee5a12 2px solid;
+    color: #dddddd;
+    background-color: #303030;
+    text-align: center;
+    height: 200px;
+}

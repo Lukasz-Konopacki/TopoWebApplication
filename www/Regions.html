@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=latin-ext"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Nstyle.css" asp-append-version="true">
+    <script src="https://kit.fontawesome.com/67d97e7797.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Number", { role: "style" } ],
+        [">4C", 3, "#2E7F18"],
+        ["5..", 10, "45731E"],
+        ["6..", 15, "#675E24"],
+        ["7..", 5, "8D472B"],
+        ["8..", 1, "#B13433"],
+        ["9..", 0, "#C82538"]
+      ]);
+
+      var options = {
+        backgroundColor: { fill:'transparent' },
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+        hAxis: {textStyle:{color: 'white'}},
+        vAxis: {textStyle:{color: 'white'}},
+        chartArea: {'width': '90%', 'height': '80%'},
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(data, options);
+
+      $(window).resize(function(){
+        drawChart();
+        });
+
+  }
+  </script>
+
+    
+</head>
+
+<body>
+
+    <!--NavBar-->
+    <nav class="navbar navbar-dark navbar-expand-lg">
+
+        <a class="navbar-brand mr-4 text-center" asp-controller="Home" asp-action="Index"><i
+                class="fas fa-map-marked-alt mr-2"></i>Topo</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainmenu">
+
+            <form class=" form-inline mr-auto my-2 text-center">
+                <input class="form-control " type="search" placeholder="Wyszukaj">
+                <button class="btn btn-light d-none d-lg-inline " type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Mapa" asp-controller="Home">Mapa</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Regions" asp-controller="Climbing">Regiony</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Kontakt" asp-controller="Home">Kontakt</a>
+                </li>
+                <li>
+                    <div class="text-center">
+                        <a asp-action="LogIn" asp-controller="Authorization" class="btn my-2 ml-2" id="login">Zaloguj
+                            się</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+<section class="RegionAll">
+    <div class="container">
+        <div class="row equal">
+            <div class="image mt-3 rounded" style="background-image: url(img/sokoliki.jpg);">
+                <h1 class="pt-5 mx-2">Sokoliki</h1>
+                <p class="mx-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus augue nisl, tempor eget orci ut,
+                    lacinia blandit nulla. Donec at ornare ex. Fusce sapien nibh, scelerisque sit amet dapibus eget,
+                    euismod vitae orci. Nullam et ornare felis, id tempor sem. Nullam in ex tortor. Nam odio nunc,
+                    imperdiet non est tristique, convallis laoreet sem. Quisque id mi vitae nisl malesuada ultricies.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="routs mt-3 col-12 col-lg-3">
+            <div class="text">
+                <h1><i class="fas fa-mountain"></i> 81</h1>
+                <h4>liczba dróg</h4>
+            </div>
+            </div>
+            <div class="p-0 graph mt-0 mt-lg-3 col-lg-9">
+                <div id="columnchart_values" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

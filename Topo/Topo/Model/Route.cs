@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Topo.Model
 {
-    public class Region
+    public class Route
     {
         public int Id { get; set; }
+        public int? NumberOnPhoto { get; set; }
+        public string author { get; set; }
+        public string Desciption { get; set; }
         [Required]
         public string Name { get; set; }
-        public string PhotoUrl { get; set; }
-        public string Position { get; set; }
-        public string Description { get; set; }
-        public List<Rock> Rocks { get; set; }
+
     }
 }

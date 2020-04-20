@@ -10,6 +10,8 @@ namespace Topo.Model
     public class EFCContext : IdentityDbContext
     {
         public DbSet<Region> Regions { get; set; }
+        public DbSet<Rock> Rocks { get; set; }
+        public DbSet<Route> Routes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
