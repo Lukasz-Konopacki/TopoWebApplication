@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Topo.Model;
+using Topo.ViewModel;
 
 namespace Topo.Controllers
 {
@@ -18,17 +18,24 @@ namespace Topo.Controllers
 
         public IActionResult Regions()
         {
-            List<Region> model = Context.Regions.ToList<Region>();
+            List<Region> model = Context.Regions.Include(x => x.Photo).ToList<Region>();
 
             return View(model);
         }
 
         public IActionResult Region(int id)
         {
-            Region model = Context.Regions.FirstOrDefault(x => x.Id == id);
+            Region Region = Context.Regions.Include(x => x.Rocks).ThenInclude(x => x.Routes).Include(x => x.Photo).FirstOrDefault(x => x.Id == id);
+            var model = new RegionViewModel(Region);
 
             return View(model);
         }
 
+        public IActionResult Rock(int id)
+        {
+            var model = Context.Rocks.Include(x => x.Routes).Include(x => x.Photos).FirstOrDefault(x => x.Id == id);
+
+            return View(model);
+        }
     }
 }

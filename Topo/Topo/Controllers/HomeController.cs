@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Topo.Model;
+using Topo.ViewModel;
 
 namespace Topo.Controllers
 {
@@ -20,12 +21,20 @@ namespace Topo.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IndexViewModel model = new IndexViewModel();
+
+            var Regions = Context.Regions.Include(x => x.Photo).Where(x => x.Id <= 4).ToList<Region>();
+            model.Regions = Regions;
+
+            return View(model);
         }
 
         public IActionResult Mapa()
         {
-            return View();
+            var model = Context.Regions.ToList<Region>();
+
+
+            return View(model);
         }
 
         public IActionResult Kontakt()

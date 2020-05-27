@@ -11,8 +11,9 @@ namespace Topo.Model
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public string PhotoUrl { get; set; }
-        public string Position { get; set; }
+        public double PostionLat { get; set; }
+        public double PostionLng { get; set; }
         public List<Route> Routes { get; set; }
+        public List<Image> Photos { get; set; }
     }
 }

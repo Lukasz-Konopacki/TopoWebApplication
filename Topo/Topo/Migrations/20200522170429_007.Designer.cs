@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Topo.Model;
 
 namespace Topo.Migrations
 {
     [DbContext(typeof(EFCContext))]
-    partial class EFCContextModelSnapshot : ModelSnapshot
+    [Migration("20200522170429_007")]
+    partial class _007
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,25 +182,6 @@ namespace Topo.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Topo.Model.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.Property<int?>("RockId");
-
-                    b.Property<string>("Url");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RockId");
-
-                    b.ToTable("Images");
-                });
-
             modelBuilder.Entity("Topo.Model.Region", b =>
                 {
                     b.Property<int>("Id")
@@ -210,15 +193,13 @@ namespace Topo.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int?>("PhotoId");
+                    b.Property<string>("PhotoUrl");
 
                     b.Property<double>("PostionLat");
 
                     b.Property<double>("PostionLng");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PhotoId");
 
                     b.ToTable("Regions");
                 });
@@ -314,20 +295,6 @@ namespace Topo.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Topo.Model.Image", b =>
-                {
-                    b.HasOne("Topo.Model.Rock")
-                        .WithMany("Photos")
-                        .HasForeignKey("RockId");
-                });
-
-            modelBuilder.Entity("Topo.Model.Region", b =>
-                {
-                    b.HasOne("Topo.Model.Image", "Photo")
-                        .WithMany()
-                        .HasForeignKey("PhotoId");
                 });
 
             modelBuilder.Entity("Topo.Model.Rock", b =>

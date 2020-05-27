@@ -98,12 +98,16 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* carusele */
 
-.carousel-item img {
-    max-height: 500px;
-    object-fit: cover;
-    object-position: 50% 30%;
+.carousel {
+    background-color: #303030;
     border: #ffffff solid 4px;
     border-radius: 10px;
+}
+
+.carousel-item img {
+    max-height: 600px;
+    object-fit: cover;
+    object-position: 50% 30%;
 }
 
 /* Rejestracja */
@@ -194,4 +198,66 @@ input[type="search"]::-webkit-search-results-decoration {
 .Regions a:hover
 {
     text-decoration: none;
+}
+
+.RegionAll .image {
+    padding-top: 350px;
+    color: white;
+    width: 100%;
+    background-image: url('../images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.RegionAll .routs {
+    position: relative;
+    text-align: center;
+    border: #ee5a12 2px solid;
+    color: #dddddd;
+    background-color: #303030;
+    min-height: 150px;
+}
+
+.RegionAll .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.RegionAll .graph {
+    border: #ee5a12 2px solid;
+    color: #dddddd;
+    background-color: #303030;
+    text-align: center;
+    height: 200px;
+}
+
+.RegionAll .table {
+    border: #dddddd 2px solid;
+    background-color: #303030;
+}
+
+.RegionAll th {
+    vertical-align: middle;
+}
+
+.RegionAll a {
+    color: #dddddd
+}
+
+.Map #map{
+    border: solid white 5px;
+    height: 87vh;
+}
+
+.Rock #map {
+    border: #dddddd 2px solid;
+    height: 500px;
+}
+
+.Rock .table {
+    border: #dddddd 2px solid;
+    background-color: #303030;
 }

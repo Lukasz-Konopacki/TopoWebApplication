@@ -1,4 +1,72 @@
-﻿<div class="col-12 text-center">
-    <h1 class=" mt-3 text-white">Tymczasowa Mapa</h1>
-    <img class=" my-3 w-1oo" src="~/img/Mapa.jpg" alt="Mapa Gór"/>
-</div>
+﻿@model List<Region>
+
+
+<section class="Map">
+    <div class="container">
+        <div class="row">
+            <div class="m-0 mt-lg-3 p-0 col-12 align-items-center">
+                <div class="m-auto" id="map">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+                @{
+                    var nfi = new NumberFormatInfo();
+                    nfi.NumberDecimalSeparator = ".";
+                }
+                function initMap() {
+                    var location = { lat: @Model[0].PostionLat.ToString(nfi), lng: @Model[0].PostionLng.ToString(nfi) };
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: location,
+                        zoom: 8,
+                        mapTypeId: 'terrain'
+                    });
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<h5>@Model[0].Name</h5>"
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                        icon: '/../img/marker.png'
+                    });
+
+                    marker.addListener('click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+
+                    var markers = [];
+                    var infowindows = [];
+
+
+                    @{
+                        for (int i = 1; i < Model.Count; i++)
+                        {
+                            <text>
+                            infowindows[@i] = new google.maps.InfoWindow({
+                                content: "<h5>@Model[i].Name</h5>"
+                            });
+
+                            markers[@i] = new google.maps.Marker({
+                                    position: {
+                                    lat: @Model[i].PostionLat.ToString(nfi),
+                                    lng: @Model[i].PostionLng.ToString(nfi) },
+                                    map: map,
+                                    icon: '/../img/marker.png'
+                            });
+
+                            markers[@i].addListener('click', function () {
+                                infowindows[@i].open(map, markers[@i]);
+                            });
+                            </text>
+                        }
+                    }
+                }
+</script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGkwhk2uQ_NVGmIcXDlp7gAUZuAQOfmQw&callback=initMap"
+                async defer></script>

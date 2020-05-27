@@ -1,0 +1,138 @@
+﻿@model RegionViewModel
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+        height: 500px;
+    }
+</style>
+
+
+<section class="RegionAll">
+
+    <!--Górne zdjecie-->
+    <div class="container">
+        <div class="row equal">
+            <div class="image mt-3 rounded" style="background-image: url(../../@Model.Region.Photo.Url);">
+                <h1 class="pt-5 mx-2">@Model.Region.Name</h1>
+                <p class="mx-2 text-justify">
+                    @Model.Region.Description
+                </p>
+            </div>
+        </div>
+
+        <!--Wykres-->
+        <div class="row">
+            <div class="routs mt-3 mb-3 mb-lg-0 col-12 col-lg-3">
+                <div class="text">
+                    <h1><i class="fas fa-mountain"></i> @Model.RoutesNumber</h1>
+                    <h4>liczba dróg</h4>
+                </div>
+            </div>
+            <div class="p-0 graph mt-0 mt-lg-3 col-lg-9">
+                <div id="columnchart_values" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+    google.charts.load("current", { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Element", "Number", { role: "style" }],
+            [">4C", @Model.DifficultyChar[0], "#2E7F18"],
+            ["5..", @Model.DifficultyChar[1], "45731E"],
+            ["6..", @Model.DifficultyChar[2], "#675E24"],
+            ["7..", @Model.DifficultyChar[3], "8D472B"],
+            ["8..", @Model.DifficultyChar[4], "#B13433"],
+            ["9..", @Model.DifficultyChar[5], "#C82538"]
+        ]);
+
+        var options = {
+            backgroundColor: { fill: 'transparent' },
+            bar: { groupWidth: "95%" },
+            legend: { position: "none" },
+            hAxis: { textStyle: { color: 'white' } },
+            vAxis: { textStyle: { color: 'white' } },
+            chartArea: { 'width': '90%', 'height': '80%' },
+            'tooltip': { trigger: 'none' },
+
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(data, options);
+
+        $(window).resize(function () {
+            drawChart();
+        });
+
+    }
+        </script>
+
+        <!-- Mapa -->
+
+        <div class="row">
+            <div class="my-3 col-12 align-items-center">
+                <div class="m-auto" id="map"></div>
+            </div>
+        </div>
+
+        <script>
+
+
+            var map;
+            function initMap() {
+                var location = { lat: @Model.Region.PostionLat.ToString(Model.nfi), lng: @Model.Region.PostionLng.ToString(Model.nfi) };
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: location,
+                    zoom: 17,
+                    mapTypeId: 'terrain'
+                });
+
+                var marker = new google.maps.Marker({ position: location, map: map, icon: '/../img/marker.png' });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGkwhk2uQ_NVGmIcXDlp7gAUZuAQOfmQw&callback=initMap"
+                async defer></script>
+
+        <!-- Tabela skały -->
+        <div class="row">
+            <table class="table table-bordered table-dark align-middle text-center mt-3 mb-3 col-12">
+                <tr>
+                    <th class="align-middle" rowspan="2">Lp.</th>
+                    <th rowspan="2">Nazwa</th>
+                    <th class="d-none d-lg-table-cell" colspan="6">Zakres Trudności</th>
+                    <th rowspan="2">Szczegóły</th>
+                </tr>
+                <tr>
+                    <th class="d-none d-lg-table-cell">4a-5a</th>
+                    <th class="d-none d-lg-table-cell">5a-6a</th>
+                    <th class="d-none d-lg-table-cell">6a-7a</th>
+                    <th class="d-none d-lg-table-cell">7a-8a</th>
+                    <th class="d-none d-lg-table-cell">8a-9a</th>
+                    <th class="d-none d-lg-table-cell">9a-9c</th>
+                </tr>
+
+
+                @{
+                    for (int i = 0; i < Model.Region.Rocks.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i+1)</td>
+                            <td>@Model.Region.Rocks[i].Name</td>
+                            <td class="d-none d-lg-table-cell">@Model.DifficultyRock[Model.Region.Rocks[i]][0]</td>
+                            <td class="d-none d-lg-table-cell">@Model.DifficultyRock[Model.Region.Rocks[i]][1]</td>
+                            <td class="d-none d-lg-table-cell">@Model.DifficultyRock[Model.Region.Rocks[i]][2]</td>
+                            <td class="d-none d-lg-table-cell">@Model.DifficultyRock[Model.Region.Rocks[i]][3]</td>
+                            <td class="d-none d-lg-table-cell">@Model.DifficultyRock[Model.Region.Rocks[i]][4]</td>
+                            <td class="d-none d-lg-table-cell">@Model.DifficultyRock[Model.Region.Rocks[i]][5]</td>
+                            <td><a asp-action="Rock" asp-controller="Climbing" asp-route-id="@Model.Region.Rocks[i].Id"><i class="fas fa-arrow-circle-right"></i></a></td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+
+    </div>
+</section>

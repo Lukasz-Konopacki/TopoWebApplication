@@ -117,7 +117,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
 .carousel-item img
 {
-    max-height: 500px;
+    max-height: 600px;
     object-fit: cover;
     object-position: 50% 30%;
     border: #ffffff solid 4px;
@@ -212,6 +212,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .RegionAll .routs
 {
     position: relative;
+    text-align: center;
     border: #ee5a12 2px solid;
     color: #dddddd;
     background-color: #303030;
@@ -232,4 +233,15 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-color: #303030;
     text-align: center;
     height: 200px;
+}
+
+.RegionAll .table-dark
+{
+    border: #dddddd 2px solid;
+    background-color:  #303030;
+}
+
+.RegionAll th
+{
+    vertical-align: middle;
 }
