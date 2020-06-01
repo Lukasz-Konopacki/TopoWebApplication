@@ -1,26 +1,8 @@
 ﻿@model IndexViewModel
-
-  <!-- Text banner -->
-<div class="container">
-    <div class="row">
-        <div class="col-12 my-4 text-center text-light">
-            <h2><i>Baw się dobrze. Pracuj ciężko. Stań się mądry. ...w tej i nie innej kolejności.</i> - <b>Jeff Lowe</b></h2>
-            <p class="text-justify">
-                &emsp; Strona ta jest efektem pracy wielu osób, powstała po to aby łatwiej dzielić się informacjami o różnych regionach wspinaczkowych.
-                Wiekszość z miejsc opisanych tutaj znajduje się na terenach górskich i leśnych. Podczas odwiedzania tych pięknych miejsc pamiętać należy o paru ważnych zasadach.
-                Nie zostawiaj po sobie śmieci, a jeśli masz taką możliwość zabierz również te pozostawione przez kogoś innego.
-                Staraj się utrzymywać swoje rzeczy uporządkowane w jednym miejscu aby nie przeszkadzały innym turystom w przejściu.
-                Staraj się również zachowywać cicho aby nie płoszyć zwierzyny występującej w okolicy. Mamy nadzieję, że dzięki naszej stronie przeżyjesz wiele wspaniałych wyjazdów.
-            </p>
-        </div>
-    </div>
-</div>
-
 <!--Carousel -->
 <div class="container">
     <div class="row">
-        <div class="col-12 m-auto p-0">
-
+        <div class="col-12 mx-auto my-3  p-0">
             <div id="my-slider" class="carousel slide" data-ride="carousel">
 
                 <ol class="carousel-indicators">
@@ -30,7 +12,6 @@
                 </ol>
 
                 <div class="carousel-inner" role="listbox">
-
 
                     <div class="carousel-item active">
                         <a asp-action="Region" asp-controller="Climbing" asp-route-id="@Model.Regions[0].Id">
@@ -43,11 +24,11 @@
 
                     <div class="carousel-item">
                         <a asp-action="Region" asp-controller="Climbing" asp-route-id="@Model.Regions[1].Id">
-                        <img class="d-block w-100" src="@Model.Regions[1].Photo.Url" alt="szczytnik">
-                        <div class="carousel-caption">
-                            <h3>@Model.Regions[1].Name</h3>
-                        </div>
-                        </a>  
+                            <img class="d-block w-100" src="@Model.Regions[1].Photo.Url" alt="szczytnik">
+                            <div class="carousel-caption">
+                                <h3>@Model.Regions[1].Name</h3>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="carousel-item">
@@ -68,13 +49,26 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
 
+<!-- Text banner -->
+<div class="container">
+    <div class="row">
+        <div id="index-text" class="col-12 mt-2 pt-2 text-center text-light">
+            <h2><i>Baw się dobrze. Pracuj ciężko. Stań się mądry. ...w tej i nie innej kolejności.</i> - <b>Jeff Lowe</b></h2>
+            <p class="text-justify">
+                &emsp; Strona ta jest efektem pracy wielu osób, powstała po to aby łatwiej dzielić się informacjami o różnych regionach wspinaczkowych.
+                Wiekszość z miejsc opisanych tutaj znajduje się na terenach górskich i leśnych. Podczas odwiedzania tych pięknych miejsc pamiętać należy o paru ważnych zasadach.
+                Nie zostawiaj po sobie śmieci, a jeśli masz taką możliwość zabierz również te pozostawione przez kogoś innego.
+                Staraj się utrzymywać swoje rzeczy uporządkowane w jednym miejscu aby nie przeszkadzały innym turystom w przejściu.
+                Staraj się również zachowywać cicho aby nie płoszyć zwierzyny występującej w okolicy. Mamy nadzieję, że dzięki naszej stronie przeżyjesz wiele wspaniałych wyjazdów.
+            </p>
+        </div>
+    </div>
+</div>
 
 <!--Register Window-->
 <section class="Register mt-3">
@@ -103,4 +97,14 @@
     </div>
 </section>
 
-<script asp-append-version="true"  src="~/js/Validation.js"></script>
+<footer>
+    <div class="container col-12">
+        <div class="row">
+            <div class="col-12 text-center my-1">
+                Zaprojektowane przez Łukasza Konopacakiego
+            </div>      
+        </div>
+    </div>
+</footer>
+
+<script asp-append-version="true" src="~/js/Validation.js"></script>

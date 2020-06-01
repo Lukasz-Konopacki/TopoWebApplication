@@ -57,20 +57,22 @@
     </nav>
     
     <!--Tutaj jest Kod to skopiowania-->
-   <section class="Login"> 
+   <section class="AddRegion"> 
         <div class="container">
-            <div class="row">
-                <div class="col-8 col-lg-6 col-xl-5 mb-3 mt-5 mx-auto window">
+            <div class="col-8 col-lg-6 col-xl-5 mb-3 mt-5 mx-auto window">
+                <h1 class="text-center mt-3">Dodawanie Regionu</h1> 
+                <form class="form-group text-center m-0">
+                    <label class="mb-0">Nazwa</label><input class="form-control" type="text">
+                    <label class=" mb-1 mt-3">Opis</label><textarea class="form-control" rows="3"></textarea>
+                    <label class="d-block mb-1 mt-3">Pozycja</label>
+                        <label class="col-2 mb-1 mt-3">Lat </label><input  step="0.01"  class="col-10 d-inline form-control" type="number">
+                        <label class="col-2 mb-1 mt-3">Lng </label><input  step="0.01" class="col-10 d-inline form-control" type="number">
+                    <label class=" mb-1 mt-3 ">Zdjęcie</label>
+                    <input class="form-control-file" accept=".jpg" type="file"> 
 
-                        <h1 class="text-center mt-3">Logowanie</h1> 
-                        <form class="form-group m-0">
-                            <label class="mb-0">E-mail</label><input class="form-control" type="email">
-                            <label class=" mb-1 mt-3">Hasło</label><input class="form-control" type="password">
-                            <input class="col-lg-6 mt-3 mb-3 form-control" type="submit">  
-                        </form>
-                        <a href=""><h6 class="text-center">Załóż Konto</h1></a>
-                </div>
-            </div>
+                    <input class="col-lg-6 mt-3 mb-3 form-control" type="submit">  
+                </form>
+        </div>
         </div>
     </section>
 

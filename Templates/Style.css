@@ -1,133 +1,118 @@
-body
-{
+body {
     font-family: 'Roboto', sans-serif;
     background-color: #404040;
 }
 
-nav
-{
+nav {
     background-color: #303030;
 }
 
-.navbar-brand
-{
+.navbar-brand {
     font-size: 2em;
 }
 
-.navbar-brand i
-{
- color: #ee5a12;
-}
+    .navbar-brand i {
+        color: #ee5a12;
+    }
 
-.nav-item
-{
+.nav-item {
     text-align: center;
 }
 
-.nav-item a
-{
-    border-bottom: transparent solid 4px;
-    color: #dddddd !important
-}
+    .nav-item a {
+        border-bottom: transparent solid 4px;
+        color: #dddddd !important
+    }
 
-.nav-item  a:hover
-{
-   border-bottom: #ee5a12 solid 4px; 
-}
+        .nav-item a:hover {
+            border-bottom: #ee5a12 solid 4px;
+        }
 
-#login
-{
+#login {
     background-color: #ee5a12;
     color: #eeeeee;
 }
 
-#login:hover
-{
-    background-color: #ff5a12;
-}
+    #login:hover {
+        background-color: #ff5a12;
+    }
 
-.navbar .form-inline
-{
+.navbar .form-inline {
     border: #dddddd solid 2px;
     border-radius: 40px;
 }
 
-.navbar .form-inline:focus-within
-{
-    border-color: #ee5a12;
-}
+    .navbar .form-inline::focus-within {
+        border-color: #ee5a12;
+    }
 
-.navbar .btn,.form-control
-{
+.navbar .btn, .form-control {
     background-color: transparent;
     border: 0px;
     border-radius: 0px;
     color: #dddddd
 }
 
-.navbar .btn,.form-control:focus
-{
-    background-color: transparent;
-    border: 0px;
-    border-radius: 0px;
-    color: #dddddd;
-    outline-style:none;
-    box-shadow:none;
-}
+    .navbar .btn, .form-control:focus {
+        background-color: transparent;
+        border: 0px;
+        border-radius: 0px;
+        color: #dddddd;
+        outline-style: none;
+        box-shadow: none;
+    }
 
-.navbar .btn:active
-{
-    background-color: transparent !important;
-    box-shadow:none !important;
-    border: 0px !important;
-    color: #ee5a12 !important;
-}
+        .navbar .btn:active {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: 0px !important;
+            color: #ee5a12 !important;
+        }
 
-@media(max-width: 991px)
-{
-.form-control
-{
-    margin-left: auto;
-    margin-right: auto;
-}
+@media(max-width: 991px) {
+    .form-control {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-.form-control::placeholder
-{
-    text-align: center;
-}
+        .form-control::placeholder {
+            text-align: center;
+        }
 }
 
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
 
-.dropdown-menu
-{
+.dropdown-menu {
     text-align: center;
     background-color: #303030;
 }
 
-.dropdown-item:hover
-{
+.dropdown-item:hover {
     background-color: #303030;
 }
 
 /* carusele */
 
-.carousel-item img
-{
-    max-height: 600px;
-    object-fit: cover;
-    object-position: 50% 30%;
+.carousel {
+    background-color: #303030;
     border: #ffffff solid 4px;
     border-radius: 10px;
 }
 
+.carousel-item img {
+    max-height: 600px;
+    object-fit: cover;
+    object-position: 50% 30%;
+}
+
 /* Rejestracja */
 
-.Register .window
-{
+.Register .window {
     color: #eeeeee;
     padding: 20px;
     border: #ffffff solid 4px;
@@ -135,82 +120,97 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-color: #303030;
 }
 
-.Register input
-{
+.Register input {
     border: #dddddd solid 2px;
     border-radius: 4px;
     display: block;
 }
 
-.Register input:focus
-{
-    border: #ee5a12 solid 2px;
-    border-radius: 4px;
+    .Register input:focus {
+        border: #ee5a12 solid 2px;
+        border-radius: 4px;
+    }
+
+    .Register input[type=submit] {
+        margin: auto;
+        background-color: #ff5a12;
+        color: #ffffff;
+        border: none;
+    }
+
+.Register span {
+    color: #ff5a12;
 }
 
-.Register input[type=submit]
-{
-    margin: auto;
-    background-color: #ff5a12;
-    color: #ffffff;
-    border: none;
+#validation {
+    color: #ff5a12
 }
 
 /* Login */
 
-.Login .window
-{
-    background-color: #303030; 
+.Login .window {
+    background-color: #303030;
     border: 2px solid #eeeeee;
     border-radius: 10px;
     color: #eeeeee;
 }
 
-.Login input
-{
+.Login input {
     border: #dddddd solid 2px;
     border-radius: 4px;
     display: block;
 }
 
-.Login input:focus
-{
-    border: #ee5a12 solid 2px;
-    border-radius: 4px;
+    .Login input:focus {
+        border: #ee5a12 solid 2px;
+        border-radius: 4px;
+    }
+
+    .Login input[type=submit] {
+        margin: auto;
+        background-color: #ff5a12;
+        color: #ffffff;
+        border: none;
+    }
+
+.Login a {
+    color: white;
 }
 
-.Login input[type=submit]
-{
-    margin: auto;
-    background-color: #ff5a12;
-    color: #ffffff;
-    border: none;
+    .Login a:hover {
+        text-decoration: none;
+        color: #ff5a12;
+    }
+
+/*Regions*/
+
+.Regions .Region {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.Login a
+.Region a
 {
     color: white;
 }
 
-.Login a:hover
+.Regions a:hover
 {
     text-decoration: none;
-    color: #ff5a12;
 }
 
-.RegionAll .image
-{
+.RegionAll .image {
     padding-top: 350px;
     color: white;
     width: 100%;
-    background-image:url('../images/bg.png');
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;
+    background-image: url('../images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.RegionAll .routs
-{
+.RegionAll .routs {
     position: relative;
     text-align: center;
     border: #ee5a12 2px solid;
@@ -219,15 +219,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     min-height: 150px;
 }
 
-.RegionAll .text
-{
+.RegionAll .text {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%,-50%);
 }
 
-.RegionAll .graph
-{
+.RegionAll .graph {
     border: #ee5a12 2px solid;
     color: #dddddd;
     background-color: #303030;
@@ -235,13 +234,108 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     height: 200px;
 }
 
-.RegionAll .table-dark
-{
+.RegionAll .table {
     border: #dddddd 2px solid;
-    background-color:  #303030;
+    background-color: #303030;
 }
 
-.RegionAll th
-{
+.RegionAll th {
     vertical-align: middle;
+}
+
+.RegionAll a {
+    color: #dddddd
+}
+
+/* Mapa */
+.Map #map{
+    border: solid white 5px;
+    height: 87vh;
+}
+
+.Marker{
+    font-weight: bold;
+}
+
+/* Rock */
+.Rock #map {
+    border: #dddddd 2px solid;
+    height: 500px;
+}
+
+.Rock .table {
+    border: #dddddd 2px solid;
+    background-color: #303030;
+}
+
+/* Footer */
+#index-text {
+    background-color: #303030;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #303030;
+    color: #eeeeee;
+}
+
+
+/* Change */
+.Edit .choice{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #303030;
+    color: #eeeeee;
+    border: #ee5a12 2px solid;
+}
+
+.Edit .choice a{
+    background-color: #ee5a12;
+    padding: 10px;
+    margin-right: 10px;
+    border: #000000 1px solid;
+}
+
+/* AddRegion */
+
+.AddRegion .window {
+    background-color: #303030;
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
+    color: #eeeeee;
+}
+
+.AddRegion input {
+    border: #dddddd solid 2px;
+    border-radius: 4px;
+    display: block;
+}
+
+.AddRegion input:focus {
+        border: #ee5a12 solid 2px;
+        border-radius: 4px;
+    }
+
+    .AddRegion input[type=submit] {
+        margin: auto;
+        background-color: #ff5a12;
+        color: #ffffff;
+        border: none;
+    }
+    
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.AddRegion textarea{
+    resize: none;
+    border: #dddddd solid 2px;
+    border-radius: 4px;
+}
+
+.AddRegion textarea:focus{
+    border: #ee5a12 solid 2px;
+    border-radius: 4px;
 }

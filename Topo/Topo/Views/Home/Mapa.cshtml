@@ -18,38 +18,23 @@
                     nfi.NumberDecimalSeparator = ".";
                 }
                 function initMap() {
-                    var location = { lat: @Model[0].PostionLat.ToString(nfi), lng: @Model[0].PostionLng.ToString(nfi) };
+
+                    var markers = [];
+                    var infowindows = [];
+                    var prev_infowindow = false;
+
                     map = new google.maps.Map(document.getElementById('map'), {
-                        center: location,
+                        center: {lat: @Model[0].PostionLat.ToString(nfi), lng: @Model[0].PostionLng.ToString(nfi)},
                         zoom: 8,
                         mapTypeId: 'terrain'
                     });
 
-                    var infowindow = new google.maps.InfoWindow({
-                        content: "<h5>@Model[0].Name</h5>"
-                    });
-
-                    var marker = new google.maps.Marker({
-                        position: location,
-                        map: map,
-                        icon: '/../img/marker.png'
-                    });
-
-                    marker.addListener('click', function () {
-                        infowindow.open(map, marker);
-                    });
-
-
-                    var markers = [];
-                    var infowindows = [];
-
-
                     @{
-                        for (int i = 1; i < Model.Count; i++)
+                        for (int i = 0; i < Model.Count; i++)
                         {
                             <text>
                             infowindows[@i] = new google.maps.InfoWindow({
-                                content: "<h5>@Model[i].Name</h5>"
+                                content: '<a class="Marker" href="/../Climbing/Region/@Model[i].Id">@Model[i].Name</a>'
                             });
 
                             markers[@i] = new google.maps.Marker({
@@ -61,7 +46,13 @@
                             });
 
                             markers[@i].addListener('click', function () {
-                                infowindows[@i].open(map, markers[@i]);
+                              if (prev_infowindow) {
+                                  prev_infowindow.close();
+                                  console.log(prev_infowindow);
+                              }
+
+                            infowindows[@i].open(map, markers[@i]);
+                            prev_infowindow = infowindows[@i];
                             });
                             </text>
                         }

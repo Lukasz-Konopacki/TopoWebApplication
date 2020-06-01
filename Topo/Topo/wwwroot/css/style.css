@@ -246,11 +246,15 @@ input[type="search"]::-webkit-search-results-decoration {
 .RegionAll a {
     color: #dddddd
 }
-
+/* Mapa */
 .Map #map{
     border: solid white 5px;
     height: 87vh;
 }
+.Marker {
+    font-weight: bold;
+}
+/* Rock */
 
 .Rock #map {
     border: #dddddd 2px solid;
@@ -261,3 +265,84 @@ input[type="search"]::-webkit-search-results-decoration {
     border: #dddddd 2px solid;
     background-color: #303030;
 }
+
+
+/* Footer */
+
+#index-text {
+    background-color: #303030;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #303030;
+    color: #eeeeee;
+}
+
+
+/* Change */
+.Edit .choice {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #303030;
+    color: #eeeeee;
+    border: #ee5a12 2px solid;
+}
+
+.Edit .choice a {
+        background-color: #ee5a12;
+        padding: 10px;
+        margin-right: 10px;
+        border: #000000 1px solid;
+        color: white;
+}
+
+    .Edit .choice a:hover {
+        text-decoration: none;
+        background-color: #ff6b12;
+    }
+
+
+/* AddRegion */
+
+.AddRegion .window {
+    background-color: #303030;
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
+    color: #eeeeee;
+}
+
+.AddRegion input {
+    border: #dddddd solid 2px;
+    border-radius: 4px;
+    display: block;
+}
+
+    .AddRegion input:focus {
+        border: #ee5a12 solid 2px;
+        border-radius: 4px;
+    }
+
+    .AddRegion input[type=submit] {
+        margin: auto;
+        background-color: #ff5a12;
+        color: #ffffff;
+        border: none;
+    }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.AddRegion textarea {
+    resize: none;
+    border: #dddddd solid 2px;
+    border-radius: 4px;
+}
+
+    .AddRegion textarea:focus {
+        border: #ee5a12 solid 2px;
+        border-radius: 4px;
+    }
