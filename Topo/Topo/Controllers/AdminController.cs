@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Topo.Model;
+using Topo.ViewModel;
 
 namespace Topo.Controllers
 {
@@ -29,12 +32,36 @@ namespace Topo.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddRegion(Region model)
+        public IActionResult AddRegion(SaveRegionViewModel model)
         {
-            return Content($"{model.Name}\n" +
-                $"{model.Description}\n" +
-                $"{model.PostionLat}\n" +
-                $"{model.PostionLat}");
+            using (var stream = System.IO.File.Create($"wwwroot/img/{model.Name}.jpg"))
+            {
+                model.File.CopyTo(stream);
+            }
+
+            Image img = new Image()
+            {
+                Name = model.Name,
+                Url = $"img/{model.Name}.jpg"
+            };
+            Context.Images.Add(img);
+            Context.SaveChanges();
+
+
+            Region region = new Region()
+            {
+                Name = model.Name,
+                Description = model.Description,
+                PostionLat = model.PostionLat,
+                PostionLng = model.PostionLng,
+                Photo = img
+            };
+
+            Context.Regions.Add(region);
+
+            Context.SaveChanges();
+
+            return Content($"{model.File.FileName}");
         }
 
 

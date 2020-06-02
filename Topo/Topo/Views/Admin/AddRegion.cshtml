@@ -1,17 +1,17 @@
-﻿@model Region
+﻿@model SaveRegionViewModel
 
 <section class="AddRegion">
     <div class="container">
         <div class="col-8 col-lg-6 col-xl-5 mb-3 mt-5 mx-auto window">
             <h1 class="text-center mt-3">Dodawanie Regionu</h1>
-            <form method="post"  class="form-group text-center m-0">
-                <label class="mb-0">Nazwa</label><input class="form-control" type="text" asp-for="Name">
+            <form method="post" enctype="multipart/form-data"  class="form-group text-center m-0">
+                <label class="mb-0">Nazwa</label><input class="form-control" type="text" asp-for="Name" required>
                 <label class=" mb-1 mt-3">Opis</label><textarea asp-for="Description" class="form-control" rows="3"></textarea>
                 <label class="d-block mb-1 mt-3">Pozycja</label>
                 <label class="col-2 mb-1 mt-3">Lat </label><input step="0.01" class="col-10 d-inline form-control" type="number" asp-for="PostionLat">
                 <label class="col-2 mb-1 mt-3">Lng </label><input step="0.01" class="col-10 d-inline form-control" type="number" asp-for="PostionLng">
                 <label class=" mb-1 mt-3 ">Zdjęcie</label>
-                <input class="form-control-file" accept=".jpg" type="file">
+                <input class="form-control-file"  accept=".jpg" type="file" asp-for="File" required>
                 <input class="col-lg-6 mt-3 mb-3 form-control" type="submit">
             </form>
         </div>
