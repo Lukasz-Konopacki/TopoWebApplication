@@ -234,12 +234,12 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 200px;
 }
 
-.RegionAll .table {
+.table {
     border: #dddddd 2px solid;
     background-color: #303030;
 }
 
-.RegionAll th {
+th {
     vertical-align: middle;
 }
 
@@ -338,4 +338,9 @@ input::-webkit-inner-spin-button {
 .AddRegion textarea:focus{
     border: #ee5a12 solid 2px;
     border-radius: 4px;
+}
+
+.table a{
+    background-color: #ee5a12;
+    padding: 5px 20px;
 }

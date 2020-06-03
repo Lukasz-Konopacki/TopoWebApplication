@@ -25,6 +25,17 @@ namespace Topo.Controllers
             return View();
         }
 
+
+        public IActionResult DeleteRegion()
+        {
+            return View();
+        }
+
+        public IActionResult ConfirmDelete(int id)
+        {
+            return Content(id.ToString());
+        }
+
         [HttpGet]
         public IActionResult AddRegion()
         {

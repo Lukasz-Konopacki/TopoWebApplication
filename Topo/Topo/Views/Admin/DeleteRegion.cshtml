@@ -1,0 +1,30 @@
+﻿<section class="DeleteRegion">
+    <div class="container">
+        <div class="col-12 col-lg-12">
+            <h1 class="text-center mt-3 text-white">Usuwanie Regionu</h1>
+            <h6 class="text-center text-white">Wybierz region, który chesz usunąć</h6>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered table-dark align-middle text-center mt-3 mb-3 col-12">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nazwa</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Bieszczady</td>
+                        <th><a asp-action="ConfirmDelete" asp-route-id="1">Usuń</a></th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Tatry</td>
+                        <th><a asp-action="ConfirmDelete" asp-route-id="1">Usuń</a></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
