@@ -28,12 +28,16 @@ namespace Topo.Controllers
 
         public IActionResult DeleteRegion()
         {
-            return View();
+            List<Region> model = Context.Regions.ToList();
+
+            return View(model);
         }
 
         public IActionResult ConfirmDelete(int id)
         {
-            return Content(id.ToString());
+            Region model = Context.Regions.FirstOrDefault(x => x.Id == id);
+
+            return View(model);
         }
 
         [HttpGet]

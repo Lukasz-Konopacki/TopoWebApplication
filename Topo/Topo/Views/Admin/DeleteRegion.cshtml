@@ -1,4 +1,6 @@
-﻿<section class="DeleteRegion">
+﻿@model List<Region>
+
+<section class="DeleteRegion">
     <div class="container">
         <div class="col-12 col-lg-12">
             <h1 class="text-center mt-3 text-white">Usuwanie Regionu</h1>
@@ -13,16 +15,14 @@
                         <th>Nazwa</th>
                     </tr>
 
-                    <tr>
-                        <td>1</td>
-                        <td>Bieszczady</td>
-                        <th><a asp-action="ConfirmDelete" asp-route-id="1">Usuń</a></th>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Tatry</td>
-                        <th><a asp-action="ConfirmDelete" asp-route-id="1">Usuń</a></th>
-                    </tr>
+                    @foreach (var elem in Model)
+                    {
+                        <tr>
+                            <td>@elem.Id</td>
+                            <td>@elem.Name</td>
+                            <th><a asp-action="ConfirmDelete" asp-route-id="@elem.Id">Usuń</a></th>
+                        </tr>
+                    }
                 </table>
             </div>
         </div>
