@@ -4,9 +4,19 @@
     <div class="container">
         <div class="col-12">
             <h1 class="text-center mt-3 text-white">Czy napewno usunąć poniższy Region?</h1>
+            
+            <div class="delete mt-3">
+                <a asp-action="DeletedRegion" asp-route-id="@Model.Id">Tak</a>
+                <a asp-action="Panel">Nie</a>
+            </div>
 
-            <div class="col-12">
-                
+            <div class="image rounded-lg col-12 text-white mt-3 mx-auto" style="background-image:url('../../@Model.Photo.Url')">
+                <div>
+                    <h1 class="pt-5">@Model.Name</h1>
+                    <p class="pb-3">
+                        @Model.Description
+                    </p>
+                </div>
             </div>
 
         </div>

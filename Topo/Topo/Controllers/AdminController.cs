@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Topo.Model;
 using Topo.ViewModel;
 
@@ -35,9 +36,16 @@ namespace Topo.Controllers
 
         public IActionResult ConfirmDelete(int id)
         {
-            Region model = Context.Regions.FirstOrDefault(x => x.Id == id);
+            Region model = Context.Regions.Include(x => x.Photo).FirstOrDefault(x => x.Id == id);
 
             return View(model);
+        }
+
+        public IActionResult DeletedRegion(int id)
+        {
+            Context.Regions.Remove(Context.Regions.Single(x => x.Id == id));
+            Context.SaveChanges();
+            return RedirectToAction("panel", "admin");
         }
 
         [HttpGet]

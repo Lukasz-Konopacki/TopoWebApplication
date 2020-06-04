@@ -207,7 +207,7 @@ input[type="search"]::-webkit-search-results-decoration {
     text-decoration: none;
 }
 
-.RegionAll .image {
+.image {
     padding-top: 350px;
     color: white;
     width: 100%;
@@ -351,3 +351,16 @@ input::-webkit-inner-spin-button {
     background-color: #ee5a12;
     padding: 5px 20px;
 }
+
+.delete
+{
+    text-align: center
+}
+
+    .delete a {
+        color:white;
+        background-color: #ee5a12;
+        padding: 10px 40px;
+        margin: 0 60px;
+        border: #000000 1px solid;
+    }
