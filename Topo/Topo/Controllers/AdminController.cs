@@ -43,7 +43,13 @@ namespace Topo.Controllers
 
         public IActionResult DeletedRegion(int id)
         {
-            Context.Regions.Remove(Context.Regions.Single(x => x.Id == id));
+            var region = Context.Regions.Include(x => x.Photo).Single(x => x.Id == id);
+            var img = region.Photo;
+
+            System.IO.File.Delete($"wwwroot/{img.Url}");
+
+            Context.Regions.Remove(region);
+            Context.Images.Remove(img);
             Context.SaveChanges();
             return RedirectToAction("panel", "admin");
         }
@@ -84,7 +90,7 @@ namespace Topo.Controllers
 
             Context.SaveChanges();
 
-            return Content($"{model.File.FileName}");
+            return RedirectToAction("panel", "admin");
         }
 
 
