@@ -11,6 +11,7 @@ namespace Topo.ViewModel
 {
     public class SaveRegionViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
