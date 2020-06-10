@@ -4,9 +4,10 @@ Projekt aplikacji internetowej, służącej jako przewodnik wspinaczkowy. Aplika
 
 ### Użyte Technologie
 
-..* Asp.net core Mvc
-..* Bootstrap
-..* Entity Framework
-..* Asp.Net Core Identity
+* Asp.net core Mvc
+* Bootstrap
+* Entity Framework
+* Asp.Net Core Identity
 
 ![alt text](https://github.com/Lukasz-Konopacki/TopoWebApplication/blob/master/ReadMeImg/PhotoReadme1.PNG)
+![alt text](https://github.com/Lukasz-Konopacki/TopoWebApplication/blob/master/ReadMeImg/PhotoReadme2.PNG)
