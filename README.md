@@ -1,6 +1,6 @@
 # TopoWebApplication
 
-Projekt aplikacji internetowej, służącej jako przewodnik wspinaczkowy. Aplikacja połączona jest z bazą danych, do której można dodawać opisy nowych dróg wspinaczkowych.
+Projekt aplikacji internetowej, służącej jako przewodnik wspinaczkowy. Aplikacja połączona jest z bazą danych, do której można dodawać opisy nowych dróg wspinaczkowych. 
 
 ### Użyte Technologie
 
@@ -8,6 +8,8 @@ Projekt aplikacji internetowej, służącej jako przewodnik wspinaczkowy. Aplika
 * Bootstrap
 * Entity Framework
 * Asp.Net Core Identity
+* Google Maps API
+* Google Charts
 
 ![alt text](https://github.com/Lukasz-Konopacki/TopoWebApplication/blob/master/ReadMeImg/PhotoReadme1.PNG)
 ![alt text](https://github.com/Lukasz-Konopacki/TopoWebApplication/blob/master/ReadMeImg/PhotoReadme2.PNG)
